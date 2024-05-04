@@ -6,6 +6,7 @@ services:
     hostname: nitro
     ports:
       - '3000:3000'
+    env_file: ./nitro/.env
 
   nginx:
     container_name: nginx
