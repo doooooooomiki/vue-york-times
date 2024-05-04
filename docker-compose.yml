@@ -1,0 +1,16 @@
+services:
+  nitro:
+    container_name: nitro
+    build: ./nitro
+    restart: on-failure
+    hostname: nitro
+    ports:
+      - '3000:3000'
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    depends_on:
+      - nitro
+    ports:
+      - '80:80'

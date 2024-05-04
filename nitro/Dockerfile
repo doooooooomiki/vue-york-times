@@ -17,7 +17,7 @@ COPY ./ ./
 RUN npm run build 
     
 # Start your image with a node base image
-FROM node:20-alpine as APP
+FROM node:20-alpine
 
 WORKDIR /app
 
