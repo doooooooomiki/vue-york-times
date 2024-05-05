@@ -8,10 +8,24 @@ services:
       - '3000:3000'
     env_file: ./nitro/.env
 
+  vue:
+    container_name: vue
+    build: ./vue
+    depends_on:
+      - nitro
+    volumes:
+      - vue-dist:/etc/nginx/html
+
   nginx:
     container_name: nginx
     build: ./nginx
     depends_on:
       - nitro
+      - vue
     ports:
       - '80:80'
+    volumes:
+      - vue-dist:/etc/nginx/html
+
+volumes:
+  vue-dist:
