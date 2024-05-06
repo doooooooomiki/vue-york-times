@@ -10,10 +10,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <h1>This is an food page</h1>
-    <ul>
-      <li v-for="food in foodStore.food" :key="food.uri">{{ food.title }}</li>
-    </ul>
-  </div>
+  <ul>
+    <li v-for="food in foodStore.food" :key="food.uri">{{ food.title }}</li>
+  </ul>
 </template>
