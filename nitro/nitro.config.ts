@@ -4,4 +4,10 @@ export default defineNitroConfig({
   runtimeConfig: {
     nytKey: 'foo',
   },
+  routeRules: {
+    '/api/*': {
+      cors: true,
+      headers: { 'access-control-allow-methods': 'GET' },
+    },
+  },
 });

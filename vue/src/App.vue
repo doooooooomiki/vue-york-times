@@ -21,5 +21,18 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </header>
 
-  <RouterView />
+  <main class="ml-auto mr-auto max-w-7xl">
+    <RouterView v-slot="{ Component }">
+      <template v-if="Component">
+        <KeepAlive>
+          <Suspense>
+            <!-- main content -->
+            <component :is="Component"></component>
+            <!-- loading state -->
+            <template #fallback> Loading... </template>
+          </Suspense>
+        </KeepAlive>
+      </template>
+    </RouterView>
+  </main>
 </template>
